@@ -1,0 +1,40 @@
+\begin{aligned}
+m\ddot{x} + c \dot{x} + k_1 x + k_3 x^3 = \alpha i \\
+(L_0 + \beta_1 T + \beta_2 T^2) \dot{i} + R i = u \\
+\dot{T} = \frac{1}{C_T} \left[ R i^2 - h(T - T_{env})  \right]
+\end{aligned}
+
+
+\begin{aligned}
+\mathbf{x} & = 
+\begin{bmatrix}
+x \\
+v \\
+i \\
+T \\
+\alpha
+\end{bmatrix} \\
+u & =
+\begin{bmatrix}
+V
+\end{bmatrix}
+\end{aligned}
+
+
+A(\mathbf{x}, u) =
+\begin{bmatrix}
+	0 & 1 & 0 & 0 & 0 \\
+        \frac{-k_1 -3 k_3 x_1^2}{m} & \frac{-c}{m} & \frac{x_5}{m} & 0 & \frac{x_3}{m}  \\
+        0 & 0 & \frac{-R}{L(x_4)} & \frac{Rx_3 - u}{L(x_4)^2} \frac{dL(x_4)}{dT} & 0 \\
+        0 & 0 & \frac{2Rx_3}{C_T} & \frac{-h}{C_T} & 0 \\
+	0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+\quad
+B(\mathbf{x}, u)
+= \begin{bmatrix}
+	0 \\
+        0 \\
+        \frac{1}{L(x_4)} \\
+        0 \\
+	0
+\end{bmatrix}

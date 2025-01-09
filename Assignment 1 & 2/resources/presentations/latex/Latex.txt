@@ -1,0 +1,61 @@
+\begin{aligned}
+m\dot{v} & = T - C_Dv^2 - mg\sin{\gamma} \\
+m\dot{\gamma}v & = C_Lv^2 - mg\cos{\gamma} \\
+\dot{h} & = v\sin{\gamma} \\
+\dot{m} & = -\alpha T 
+\end{aligned}
+
+
+\begin{aligned}
+\mathbf{x} & = 
+\begin{bmatrix}
+h \\
+v \\
+m \\
+\alpha
+\end{bmatrix} \\
+u & =
+\begin{bmatrix}
+T
+\end{bmatrix}
+\end{aligned}
+
+A(\mathbf{x}, u) =
+\begin{bmatrix}
+	0 & \sin{x_4} & 0 & x_2 \cos{x_4} \\
+        0 & \frac{-2 C_D x_2}{x_3} & -\frac{u-C_D x_2^2}{x_3^2} & -g\cos{x_4} \\
+        0 & 0 & 0 & 0 \\
+        0 & \frac{C_L}{x_3} + \frac{g \cos{x_4}}{x_2^2} & -\frac{C_L x_2}{x_3^2} & \frac{g\sin{x_4}}{x_2}
+\end{bmatrix}
+\quad
+B(\mathbf{x}, u)
+= \begin{bmatrix}
+	0 \\
+        \frac{1}{x_3} \\
+        -\alpha \\
+        0
+\end{bmatrix}
+
+\begin{table}
+\begin{tabular}{c|c|c}
+
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{Initial} (\mathbf{x}_0) & \textbf{Final} (\mathbf{x}_f) & \textbf{Unit} \\ \hline
+x_1 & 0 & 50 \cdot 10^3 & \text{[m]} \\ \hline
+x_2 & 50 & 1200 & \text{[m/s]} \\ \hline
+x_3 & 2050 \cdot 10^3 & 880 \cdot 10^3 & \text{[kg]} \\ \hline
+x_4 & 89 & 30 & \text{[deg]} \\ \hline
+\end{array}
+\]
+
+
+
+J = \frac{1}{2} (\mathbf{x}(t_f) - \mathbf{x}_f)^T \mathbf{P} (\mathbf{x}(t_f) - \mathbf{x}_f) + 
+	\frac{1}{2} \int_{t_0}^{t_f} \mathbf{x}^T \mathbf{Q} \mathbf{x} + \mathbf{u}^T \mathbf{R} \mathbf{u} dt
+
+Q = diag([zeros(4, 1)]);
+R = diag([1e-6]);
+P = diag([100 1000 0.01 1]);
